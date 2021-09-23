@@ -40,20 +40,20 @@ class PasswordInputView: AppInputView {
         let errors = self.validPassword(password)
         if errors.count <= 0 {
             let validatedMessage: NSMutableAttributedString = NSMutableAttributedString()
-            validatedMessage.append(NSAttributedString(string: "✅ Valid password\n"))
-            validatedMessage.append(NSAttributedString(string: "✅ Must contain combination of Upper case,lower case,special character and a numeric digit(**Aa@1**)\n"))
-            validatedMessage.append(NSAttributedString(string: "✅ At least 1 special character (!#$%^_@)\n"))
+//            validatedMessage.append(NSAttributedString(string: "✅ Valid password\n"))
             validatedMessage.append(NSAttributedString(string: "✅ Between 8 - 16 characters\n"))
+            validatedMessage.append(NSAttributedString(string: "✅ At least 1 special character (!#$%^_@)\n"))
+            validatedMessage.append(NSAttributedString(string: "✅ Must contain combination of Upper case,lower case,special character and a numeric digit(**Aa@1**)\n"))
             return validatedMessage
             
         } else {
             let errorMessage: NSMutableAttributedString = NSMutableAttributedString()
             
             if errors.contains(.emptyInput) {
-                errorMessage.append(NSAttributedString(string: "❌ Enter password\n"))
-                errorMessage.append(NSAttributedString(string: "⏺ Must contain combination of Upper case,lower case,special character and a numeric digit(**Aa@1**)\n"))
-                errorMessage.append(NSAttributedString(string: "⏺ At least 1 special character (!#$%^_@)\n"))
+//                errorMessage.append(NSAttributedString(string: "❌ Enter password\n"))
                 errorMessage.append(NSAttributedString(string: "⏺ Between 8 - 16 characters\n"))
+                errorMessage.append(NSAttributedString(string: "⏺ At least 1 special character (!#$%^_@)\n"))
+                errorMessage.append(NSAttributedString(string: "⏺ Must contain combination of Upper case,lower case,special character and a numeric digit(**Aa@1**)\n"))
             } else {
                 if errors.contains(.numberLimitMismatch) == false {
                     errorMessage.append(NSAttributedString(string: "✅ Between 8 - 16 characters\n"))
